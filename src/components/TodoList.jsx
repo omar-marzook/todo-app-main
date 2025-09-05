@@ -6,9 +6,15 @@ export default function TodoList(props) {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
             {/* Todo Items */}
             <div className="divide-y divide-gray-100">
-                {props.todos.map(todo =>
-                    <TodoListItem key={todo.id} name={todo.name} completed={todo.completed} />
-                )}
+                {props.todos.map((todo) => (
+                    <TodoListItem
+                        key={todo.id}
+                        name={todo.name}
+                        completed={todo.completed}
+                        id={todo.id}
+                        toggleTodoCompletion={props.toggleTodoCompletion}
+                    />
+                ))}
             </div>
 
             {/* Footer */}

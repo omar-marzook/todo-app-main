@@ -8,6 +8,7 @@ export default function TodoListItem(props) {
                         ? 'border-purple-500 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center'
                         : 'border-gray-300 hover:border-purple-500')
                 }
+                onClick={() => props.toggleTodoCompletion(props.id)}
             >
                 {props.completed && (
                     <svg
