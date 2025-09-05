@@ -17,8 +17,7 @@ export default function TodoList(props) {
                 ))}
             </div>
 
-            {/* Footer */}
-            <TodoListFooter />
+            <TodoListFooter number={props.todos.length} />
         </div>
     );
 }
