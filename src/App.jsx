@@ -5,6 +5,11 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
 function App() {
+    function addListItem(formData) {
+        const newItem = formData.get('todo');
+        console.log(newItem);
+    }
+
     return (
         <main className="min-h-screen flex items-center justify-center p-4 bg-[linear-gradient(135deg,_#8B5CF6_0%,_#A855F7_25%,_#C084FC_50%,_#E879F9_75%,_#60A5FA_100%)]">
             <div className="w-full max-w-md">
@@ -12,7 +17,7 @@ function App() {
                 <Header />
 
                 {/* Create Todo Input */}
-                <TodoInput />
+                <TodoInput addListItem={addListItem} />
 
                 {/* Todo List */}
                 <TodoList />
