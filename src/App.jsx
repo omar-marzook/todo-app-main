@@ -3,11 +3,14 @@ import './App.css';
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import todosData from './components/data';
 
 function App() {
+  const [todos, setTodos] = useState(todosData);
+    
     function addListItem(formData) {
         const newItem = formData.get('todo');
-        console.log(newItem);
+        setTodos([...todos, { id: todos.length + 1, name: newItem, completed: false }]);
     }
 
     return (
@@ -20,7 +23,7 @@ function App() {
                 <TodoInput addListItem={addListItem} />
 
                 {/* Todo List */}
-                <TodoList />
+                <TodoList todos={todos} />
 
                 {/* Drag and drop hint */}
                 <p className="text-center text-white/60 text-sm mt-6">
