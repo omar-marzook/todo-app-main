@@ -1,25 +1,23 @@
 import TodoListItem from './TodoListItem';
 import TodoListFooter from './TodoListFooter';
 
-export default function TodoList() {
+export default function TodoList(props) {
     return (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
             {/* Todo Items */}
             <div className="divide-y divide-gray-100">
-                {/* Completed Item */}
-                <TodoListItem
-                    name="Complete online JavaScript course"
-                    completed
-                />
-                <TodoListItem name="Jog around the park 3x" />
-                <TodoListItem name="10 minutes meditation" />
-                <TodoListItem name="Read for 1 hour" />
-                <TodoListItem name="Pick up groceries" />
-                <TodoListItem name="Complete Todo App on Frontend Mentor" />
+                {props.todos.map((todo) => (
+                    <TodoListItem
+                        key={todo.id}
+                        name={todo.name}
+                        completed={todo.completed}
+                        id={todo.id}
+                        toggleTodoCompletion={props.toggleTodoCompletion}
+                    />
+                ))}
             </div>
 
-            {/* Footer */}
-            <TodoListFooter />
+            <TodoListFooter number={props.todos.length} />
         </div>
     );
 }
