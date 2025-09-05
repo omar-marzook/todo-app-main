@@ -6,18 +6,41 @@ import TodoList from './components/TodoList';
 import todosData from './components/data';
 
 function App() {
-  const [todos, setTodos] = useState(todosData);
+    const [todos, setTodos] = useState(todosData);
     //  Add Todo Item from The Input
     function addListItem(formData) {
         const newItem = formData.get('todo');
-        setTodos([...todos, { id: todos.length + 1, name: newItem, completed: false }]);
+        setTodos([
+            ...todos,
+            { id: todos.length + 1, name: newItem, completed: false },
+        ]);
     }
 
     // Toggle the todo item completion status on click
     function toggleTodoCompletion(id) {
-        setTodos(todos.map(todo =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        ));
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id
+                    ? { ...todo, completed: !todo.completed, active: false }
+                    : todo
+            )
+        );
+    }
+
+    function handleActive(id) {
+        setTodos(
+            todos.map((todo) => {
+                if (todo.id === id && !todo.completed) {
+                    return { ...todo, active: !todo.active };
+                } else {
+                    return todo;
+                }
+            })
+        );
+    }
+
+    function clearCompleted() {
+      setTodos(todos.filter(todo => !todo.completed))
     }
 
     return (
@@ -30,6 +53,8 @@ function App() {
                 <TodoList
                     todos={todos}
                     toggleTodoCompletion={toggleTodoCompletion}
+                    handleActive={handleActive}
+                    clearCompleted={clearCompleted}
                 />
 
                 <p className="text-center text-white/60 text-sm mt-6">

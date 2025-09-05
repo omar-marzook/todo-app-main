@@ -11,13 +11,18 @@ export default function TodoList(props) {
                         key={todo.id}
                         name={todo.name}
                         completed={todo.completed}
+                        active={todo.active}
                         id={todo.id}
                         toggleTodoCompletion={props.toggleTodoCompletion}
+                        handleActive={props.handleActive}
                     />
                 ))}
             </div>
 
-            <TodoListFooter number={props.todos.length} />
+            <TodoListFooter
+                number={props.todos.length}
+                clearCompleted={props.clearCompleted}
+            />
         </div>
     );
 }

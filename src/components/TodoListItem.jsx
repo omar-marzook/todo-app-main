@@ -1,6 +1,11 @@
 export default function TodoListItem(props) {
     return (
-        <div className="flex items-center p-4 group hover:bg-gray-50 transition-colors">
+        <div
+            className={
+                'flex items-center p-4 group hover:bg-gray-50 transition-colors ' +
+                (props.active ? 'bg-gray-50' : '')
+            }
+        >
             <button
                 className={
                     'flex-shrink-0 w-6 h-6 rounded-full border-2  transition-colors mr-4 ' +
@@ -29,6 +34,7 @@ export default function TodoListItem(props) {
                     'flex-1 text-gray-700' +
                     (props.completed ? ' line-through' : '')
                 }
+                onClick={() => props.handleActive(props.id)}
             >
                 {props.name}
             </span>

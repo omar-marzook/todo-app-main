@@ -15,7 +15,10 @@ export default function TodoListFooter(props) {
                 </button>
             </div>
 
-            <button className="hover:text-gray-700 transition-colors">
+            <button
+                className="hover:text-gray-700 transition-colors"
+                onClick={props.clearCompleted}
+            >
                 Clear Completed
             </button>
         </div>
