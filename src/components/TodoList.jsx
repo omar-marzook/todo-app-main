@@ -6,21 +6,28 @@ export default function TodoList(props) {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
             {/* Todo Items */}
             <div className="divide-y divide-gray-100">
-                {props.todos.map((todo) => (
-                    <TodoListItem
-                        key={todo.id}
-                        name={todo.name}
-                        completed={todo.completed}
-                        active={todo.active}
-                        id={todo.id}
-                        toggleTodoCompletion={props.toggleTodoCompletion}
-                        handleActive={props.handleActive}
-                    />
-                ))}
+                {props.todos.map(
+                    (todo) =>
+                        todo.visible && (
+                            <TodoListItem
+                                key={todo.id}
+                                name={todo.name}
+                                completed={todo.completed}
+                                active={todo.active}
+                                id={todo.id}
+                                toggleTodoCompletion={
+                                    props.toggleTodoCompletion
+                                }
+                                handleActive={props.handleActive}
+                            />
+                        )
+                )}
             </div>
 
             <TodoListFooter
                 number={props.todos.length}
+                showActive={props.showActive}
+                showCompleted={props.showCompleted}
                 clearCompleted={props.clearCompleted}
             />
         </div>

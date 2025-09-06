@@ -27,6 +27,7 @@ function App() {
         );
     }
 
+    // Handle Active Todo List Item
     function handleActive(id) {
         setTodos(
             todos.map((todo) => {
@@ -39,8 +40,35 @@ function App() {
         );
     }
 
+    // Show Active Todo List Item
+    function showActive() {
+        setTodos(
+            todos.map((todo) => {
+                if (todo.active) {
+                    return { ...todo, visible: true };
+                } else {
+                    return { ...todo, visible: false };
+                }
+            })
+        );
+    }
+
+    // Show Completed Todo List Item
+    function showCompleted() {
+        setTodos(
+            todos.map((todo) => {
+                if (todo.completed) {
+                    return { ...todo, visible: true };
+                } else {
+                    return { ...todo, visible: false };
+                }
+            })
+        );
+    }
+
+    // Clear Completed Todo Items
     function clearCompleted() {
-      setTodos(todos.filter(todo => !todo.completed))
+        setTodos(todos.filter((todo) => !todo.completed));
     }
 
     return (
@@ -54,6 +82,8 @@ function App() {
                     todos={todos}
                     toggleTodoCompletion={toggleTodoCompletion}
                     handleActive={handleActive}
+                    showActive={showActive}
+                    showCompleted={showCompleted}
                     clearCompleted={clearCompleted}
                 />
 

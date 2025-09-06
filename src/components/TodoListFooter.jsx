@@ -7,10 +7,15 @@ export default function TodoListFooter(props) {
                 <button className="text-blue-500 hover:text-blue-600 font-medium">
                     All
                 </button>
-                <button className="hover:text-gray-700 transition-colors">
+                <button
+                    className="hover:text-gray-700 transition-colors"
+                    onClick={props.showActive}
+                >
                     Active
                 </button>
-                <button className="hover:text-gray-700 transition-colors">
+                <button className="hover:text-gray-700 transition-colors"
+                    onClick={props.showCompleted}
+                >
                     Completed
                 </button>
             </div>
