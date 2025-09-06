@@ -7,6 +7,8 @@ import todosData from './components/data';
 
 function App() {
     const [todos, setTodos] = useState(todosData);
+    const [filter, setFilter] = useState('all');
+
     //  Add Todo Item from The Input
     function addListItem(formData) {
         const newItem = formData.get('todo');
@@ -91,6 +93,8 @@ function App() {
                     showActive={showActive}
                     showCompleted={showCompleted}
                     clearCompleted={clearCompleted}
+                    filter={filter}
+                    setFilter={setFilter}
                 />
 
                 <p className="text-center text-white/60 text-sm mt-6">

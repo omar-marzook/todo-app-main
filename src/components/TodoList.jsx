@@ -30,6 +30,8 @@ export default function TodoList(props) {
                 showActive={props.showActive}
                 showCompleted={props.showCompleted}
                 clearCompleted={props.clearCompleted}
+                filter={props.filter}
+                setFilter={props.setFilter}
             />
         </div>
     );
