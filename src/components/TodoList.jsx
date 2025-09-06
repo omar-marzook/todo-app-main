@@ -26,6 +26,7 @@ export default function TodoList(props) {
 
             <TodoListFooter
                 number={props.todos.length}
+                showAll={props.showAll}
                 showActive={props.showActive}
                 showCompleted={props.showCompleted}
                 clearCompleted={props.clearCompleted}

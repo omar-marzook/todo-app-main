@@ -27,6 +27,11 @@ function App() {
         );
     }
 
+    // Show All Todo list items
+    function showAll() {
+        setTodos(todos.map((todo) => ({ ...todo, visible: true })));
+    }
+
     // Handle Active Todo List Item
     function handleActive(id) {
         setTodos(
@@ -82,6 +87,7 @@ function App() {
                     todos={todos}
                     toggleTodoCompletion={toggleTodoCompletion}
                     handleActive={handleActive}
+                    showAll={showAll}
                     showActive={showActive}
                     showCompleted={showCompleted}
                     clearCompleted={clearCompleted}

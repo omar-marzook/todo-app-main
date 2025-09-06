@@ -4,7 +4,10 @@ export default function TodoListFooter(props) {
             <span>{props.number} items left</span>
 
             <div className="flex space-x-4">
-                <button className="text-blue-500 hover:text-blue-600 font-medium">
+                <button
+                    className="text-blue-500 hover:text-blue-600 font-medium"
+                    onClick={props.showAll}
+                >
                     All
                 </button>
                 <button
@@ -13,7 +16,8 @@ export default function TodoListFooter(props) {
                 >
                     Active
                 </button>
-                <button className="hover:text-gray-700 transition-colors"
+                <button
+                    className="hover:text-gray-700 transition-colors"
                     onClick={props.showCompleted}
                 >
                     Completed
